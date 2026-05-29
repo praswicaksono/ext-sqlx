@@ -15,7 +15,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
         php-version: ['8.4', '8.5']
-        zts-mode: ['nts', 'ts']
+        zts-mode: ['nts', 'zts']
 
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
             SRC_BIN="target/release/libsqlx.so"
           elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
             OS_NAME="darwin"
-            LIBC=""
+            LIBC="bsdlibc-"
             BIN_EXT=".so"
             SRC_BIN="target/release/libsqlx.dylib"
           fi
@@ -57,7 +57,7 @@ jobs:
           if [[ "$ARCH" == "x86_64" || "$ARCH" == "amd64" ]]; then
             ARCH="x86_64"
           elif [[ "$ARCH" == "aarch64" || "$ARCH" == "arm64" ]]; then
-            ARCH="aarch64"
+            ARCH="arm64"
           fi
 
           # Expected format: php_sqlx-v1.0.0_php8.4-x86_64-linux-glibc-nts.zip
