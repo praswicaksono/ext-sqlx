@@ -4,8 +4,7 @@
     "license": "MIT",
     "description": "Async SQL database access via Rust sqlx",
     "require": {
-        "php": ">=8.4",
-        "revolt/event-loop": "^1.0"
+        "php": ">=8.4"
     },
     "replace": {
         "ext-sqlx": "*"
