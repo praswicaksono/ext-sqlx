@@ -1,0 +1,21 @@
+[package]
+name = "sqlx"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+php-tokio = { git = "https://github.com/danog/php-tokio", version = "0.1.7" }
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "any", "mysql", "postgres", "sqlite", "chrono", "time", "json"] }
+anyhow = "1.0"
+tokio = { version = "1", features = ["sync", "rt"] }
+ext-php-rs = { version = "0.15.14", features = ["anyhow"] }
+futures-util = "0.3.32"
+chrono = "0.4.44"

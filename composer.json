@@ -1,0 +1,21 @@
+{
+    "name": "prsw/ext-sqlx",
+    "type": "php-ext",
+    "license": "MIT",
+    "description": "Async SQL database access via Rust sqlx",
+    "require": {
+        "php": ">=8.4",
+        "revolt/event-loop": "^1.0"
+    },
+    "replace": {
+        "ext-sqlx": "*"
+    },
+    "php-ext": {
+        "extension-name": "sqlx",
+        "download-url-method": ["pre-packaged-binary"],
+        "priority": 80,
+        "support-zts": true,
+        "support-nts": true,
+        "os-families-exclude": ["windows"]
+    }
+}
